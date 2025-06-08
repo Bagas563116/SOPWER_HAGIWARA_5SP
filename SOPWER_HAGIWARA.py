@@ -61,7 +61,7 @@ def show_plot(X, SP1, SP2, SP3, SP4, SP5):
     ax.set_xlabel("X")
     ax.set_ylabel("SP Values")
     ax.legend()
-    ax.set_title("Scatter Plot of SP Values vs X")
+    ax.set_title("Kurva t vs X")
 
     canvas = FigureCanvasTkAgg(fig, master=plot_window)  # menyematkan plot ke jendela baru
     canvas.draw()
@@ -184,11 +184,8 @@ def collect_inputs(X, SP1, SP2, SP3, SP4, SP5):
             inputs.append(value)
         except ValueError:
             inputs.append(None)  
-    print("Collected Inputs:", inputs)  
     
-    # Ambil input
     posisi_SP2 = inputs[0]
-
     posisi_SP2 = inputs[0]
     posisi_SP3 = inputs[1]
     posisi_SP4 = inputs[2]
@@ -354,25 +351,26 @@ def collect_inputs(X, SP1, SP2, SP3, SP4, SP5):
     axs3[0].fill_between(X[i_awal_DF_SP2 + 1 : i_akhir_DR_SP3 - 1], hp_SP23, color='steelblue')
     axs3[0].fill_between(X[i_awal_DF_SP2 + 1 : i_akhir_DR_SP3 - 1], hp_SP23, h2_SP23, color='darkorange')
     axs3[0].set_title("Model Lapisan Kecepatan SP2 SP3", fontsize=14, weight='bold')
-    axs3[0].set_xlabel("Jarak (m)", fontsize=11, weight='bold')
+    axs3[0].set_xlabel("Jarak (m)", fontsize=11)
     axs3[0].set_ylabel("Kedalaman (m)", fontsize=11)
     axs3[0].set_ylim(Y_lim, 0)
     axs3[0].set_xticks(X[1:len(X)])
     axs3[1].fill_between(X[i_awal_DF_SP2 + 1 : i_akhir_DR_SP4 - 1], hp_SP24, color='steelblue')
     axs3[1].fill_between(X[i_awal_DF_SP2 + 1 : i_akhir_DR_SP4 - 1], hp_SP24, h2_SP24, color='darkorange')
     axs3[1].set_title("Model Lapisan Kecepatan SP2 SP4", fontsize=14, weight='bold')
-    axs3[1].set_xlabel("Jarak (m)", fontsize=11, weight='bold')
+    axs3[1].set_xlabel("Jarak (m)", fontsize=11)
     axs3[1].set_ylabel("Kedalaman (m)", fontsize=11)
     axs3[1].set_ylim(Y_lim, 0)
     axs3[1].set_xticks(X[1:len(X)])
     axs3[2].fill_between(X[i_awal_DF_SP3 + 1 : i_akhir_DR_SP4 - 1], hp_SP34, color='steelblue')
     axs3[2].fill_between(X[i_awal_DF_SP3 + 1 : i_akhir_DR_SP4 - 1], hp_SP34, h2_SP34, color='darkorange')
     axs3[2].set_title("Model Lapisan Kecepatan SP3 SP4", fontsize=14, weight='bold')
-    axs3[2].set_xlabel("Jarak (m)", fontsize=11, weight='bold')
+    axs3[2].set_xlabel("Jarak (m)", fontsize=11)
     axs3[2].set_ylabel("Kedalaman (m)", fontsize=11)
     axs3[2].set_ylim(Y_lim, 0)
     axs3[2].set_xticks(X[1:len(X)])
 
+    plt.subplots_adjust(hspace=10)
     plt.tight_layout()
     plt.show()  
 
